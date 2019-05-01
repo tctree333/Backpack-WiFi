@@ -2,3 +2,10 @@
 Source code for the game version of the backpack alarm
 
 [Maker Faire Bay Area](https://makerfaire.com/maker/entry/70336/)
+
+# Files
+"backpack_wifi" is a simplified version with basic css. Within the folder, "backpack_wifi.ino" is what you flash to your ESP8266. "index.h" is the HTML code for the web interface.
+
+# To use
+Clone the repository to your computer. Open "backpack_alarm" with the Arduino IDE. Upload to your ESP8266.
+
