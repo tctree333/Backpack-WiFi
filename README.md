@@ -12,4 +12,4 @@ The *"backpack_wifi_fancy"* folder is functionally the same as the normal *"back
 Clone the repository to your computer. Open the folder of your choice with the Arduino IDE. Upload to your ESP8266.
 
 Wire your ESP8266 as shown:
-![alt text](hhttps://drive.google.com/file/d/1oAJ0_FZQeGSXjdxqIQRMx39rVDwuvFFz/preview "Wiring Diagram")
+![alt text](https://github.com/tctree333/Backpack-WiFi/blob/master/BackpackAlarm.png "Wiring Diagram")
