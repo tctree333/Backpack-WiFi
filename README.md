@@ -13,10 +13,10 @@ Clone the repository to your computer. Open the folder of your choice with the A
 
 Wire your ESP8266 as shown:
 ![alt text](https://github.com/tctree333/Backpack-WiFi/blob/master/BackpackAlarm.png "Wiring Diagram")
-Blue Wire: SCL (LSM303) -> D1 (D1 Mini)
-Green Wire: SDA (LSM303) -> D2 (D1 Mini)
-Buzzer + -> D0 (D1 Mini)
-Black Wires -> GND (D1 Mini)
++ Blue Wire: SCL (LSM303) -> D1 (D1 Mini)
++ Green Wire: SDA (LSM303) -> D2 (D1 Mini)
++ Buzzer Positive -> D0 (D1 Mini)
++ Black Wires -> GND (D1 Mini)
 
 # Parts
 + **LSM303DLHC Compass/Accelerometer** - You can get a higher quality one from Adafruit (ID: 1120) for $15 each, or get Chinese knockoffs for ~$2-4.
