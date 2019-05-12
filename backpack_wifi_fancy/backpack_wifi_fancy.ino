@@ -9,6 +9,7 @@
 
 // include seperate HTML
 #include "fancy.h"
+#include "plain.h"
 
 // define credentials
 #define APSSID "Backpack_Wifi"
@@ -36,6 +37,11 @@ void handleRoot() { // main page
   server.send(200, "text/html", content); // send HTML
 }
 
+void handlePlain() { // main page
+  String content = PLAIN_page; // get HTML
+  server.send(200, "text/html", content); // send HTML
+}
+
 void handleData() { // display data
   server.send(200, "text/plain", String(getDeg()));
 }
@@ -53,6 +59,7 @@ void setup(void) {
 
   // start server
   server.on("/", handleRoot);
+  server.on("/plain", handlePlain);
   server.on("/getData", handleData);
   server.on("/buzz", handleBuzz);
   server.begin();
