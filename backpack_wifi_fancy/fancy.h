@@ -11,7 +11,7 @@ const char MAIN_page[] PROGMEM = R"=====(
             text-align: center;
             font-family: Arial, Helvetica, sans-serif;
             color: white;
-            animation: color-change 30s linear infinite alternate both;
+            animation: color-change 10s linear infinite alternate both;
             position: absolute;
             margin-left: auto;
             margin-right: auto;
@@ -22,24 +22,23 @@ const char MAIN_page[] PROGMEM = R"=====(
         #timer {
             /* Make timer BIG */
             font-size: 5em;
+            margin: 0.5em;
         }
-
-
 
         /* CSS functionality of the change in button colors due to timer status changes */
         .startButton {
             background-color: #ffffff;
         }
 
-
+        /* CSS classes for the backdrop changes between success and failure (GREEN AND RED) */
         .stopBackdropGood {
             animation: stop-good 2s ease;
-            background-color: #6fcf9a;
+            background-color: #3fc97d;
         }
 
         .stopBackdropBad {
             animation: stop-bad 2s ease;
-            background-color: #cf6f8f;
+            background-color: #d12a62;
         }
 
 
@@ -79,7 +78,6 @@ const char MAIN_page[] PROGMEM = R"=====(
             color: #555;
             border: none;
             box-shadow: 0 2px #999;
-
         }
 
         input {
@@ -90,9 +88,9 @@ const char MAIN_page[] PROGMEM = R"=====(
             color: #fff;
             border-radius: 2px;
             background-color: transparent;
-
         }
 
+        /* Constant color change for backdrop */
         @keyframes color-change {
             0% {
                 background: #19dcea;
@@ -115,13 +113,14 @@ const char MAIN_page[] PROGMEM = R"=====(
             }
         }
 
+        /* Flash animations for success/fail */
         @keyframes stop-good {
             0% {
                 background: #ffffff;
             }
 
             100% {
-                background: #6fcf9a;
+                background: #3fc97d;
             }
         }
 
@@ -131,10 +130,11 @@ const char MAIN_page[] PROGMEM = R"=====(
             }
 
             100% {
-                background: #cf6f8f;
+                background: #d12a62;
             }
         }
 
+        /* Active button animation */
         @keyframes blink {
             0% {
                 opacity: 1;
@@ -149,6 +149,7 @@ const char MAIN_page[] PROGMEM = R"=====(
             }
         }
 
+        /* Hover button animation */
         @keyframes pulsate {
             0% {
                 transform: scale(1);
@@ -168,20 +169,16 @@ const char MAIN_page[] PROGMEM = R"=====(
 <body>
     <h1 id="title"> Backpack Console </h1>
 
-
-
     <p><span>Degrees: </span><span id="deg">no data... yet!</span></p>
 
-
-
-    <p><span>Sensitivity:</span> <!-- adjusts sensitivity -->
+    <!-- adjusts sensitivity -->
+    <p><span>Sensitivity:</span>
         <span><input min="5" max="350" value="30" type="number" id="sensitivity"></span>
         <span><button class="button submit" onclick="changeDifficulty()">Submit</button></span></p>
 
+    <!-- timer display -->
+    <h1 id="timer">0</h1>
 
-
-
-    <h1 id="timer">0</h1> <!-- timer display -->
     <!-- timer controls -->
     <button class="button blueButton" id="start" onclick="start()">Start</button>
     <button class="button blueButton" id="stop" onclick="stop()">Stop</button>
@@ -210,7 +207,7 @@ const char MAIN_page[] PROGMEM = R"=====(
                 document.getElementById("start").click(); // click the start button
             }
         }
-
+        // Creates a function for js to use when buzzing 
         function buzz() { // trigger the buzzer
             getData("buzz");
         }
@@ -262,6 +259,8 @@ const char MAIN_page[] PROGMEM = R"=====(
         function clearDisplay() { // clear display
             tStart = Date.now(); // reset start time
             document.getElementById("timer").innerHTML = 0; // clear display
+            document.body.classList.remove("stopBackdropGood", "stopBackdropBad");
+
         }
 
         function changeDifficulty() { // change difficulty (sensitivity)
