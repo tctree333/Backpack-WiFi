@@ -4,11 +4,11 @@ Source code for the game version of the backpack alarm
 [Maker Faire Bay Area](https://makerfaire.com/maker/entry/70336/)
 
 # Files
-*"backpack_wifi"* is a simplified version with basic css. Within the folder, *"backpack_wifi.ino"* is what you flash to your ESP8266. *"index.h"* is the HTML code for the web interface.
+`backpack_wifi` is a simplified version with basic css. Within the folder, `backpack_wifi.ino` is what you flash to your ESP8266. `index.h` is the HTML code for the web interface.
 
-The *"backpack_wifi_fancy"* folder is functionally the same as the normal *"backpack_wifi"* but with fancy CSS animations done by my friend Jad.
+The `backpack_wifi_fancy` folder is functionally the same as the normal `backpack_wifi` but with fancy CSS animations done by my friend Jad.
 
-# To use
+# Flashing Your Device
 Clone the repository to your computer. Open the folder of your choice with the Arduino IDE. Upload to your ESP8266.
 
 Wire your ESP8266 as shown:
@@ -17,6 +17,14 @@ Wire your ESP8266 as shown:
 + Green Wire: SDA (LSM303) -> D2 (D1 Mini)
 + Buzzer Positive -> D0 (D1 Mini)
 + Black Wires -> GND (D1 Mini)
+
+# To Use
+1. After supplying power to the D1 Mini through a battery or USB, use a WiFi enabled device with a web browser such as a computer or tablet. 
+2. Navigate to the WiFi settings and connect to the SSID `Backpack_Wifi` with password `12345678`. These values can be changed in the code, around line 15 depending on which file you're using.
+3. After connecting to the D1 Mini, use your web browser and go to `192.168.4.1`. If you are using the fancy version, some CSS effects may not be avaliable. To switch to the plain version, go to `192.168.4.1/plain`.
+4. To start the game, click **Start**, or press `g` on your keyboard. The timer will start and the D1 Mini should beep.
+5. The game will stop automatically if rotation is detected. If the player has completed the course, click **Stop**, or press `s` on your keyboard.
+6. To clear the time, click **Clear**, or press `c`.
 
 # Parts
 + **LSM303DLHC Compass/Accelerometer** - You can get a higher quality one from Adafruit (ID: 1120) for $15 each, or get Chinese knockoffs for ~$2-4.
