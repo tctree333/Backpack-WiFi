@@ -196,7 +196,7 @@ const char MAIN_page[] PROGMEM = R"=====(
             document.getElementById("deg").innerHTML = getDeg();
         }, 100);
 
-        document.body.onkeydown = function keyPress(event) { // triggers if key presssed
+        document.body.onkeyup = function keyPress(event) { // triggers if key presssed
             if (event.key == "s") { // check if it's the s key
                 document.getElementById("stop").click(); // click the stop button
 
